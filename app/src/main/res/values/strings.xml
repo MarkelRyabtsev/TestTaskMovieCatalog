@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TestTaskMovieCatalog</string>
+    <string name="placeholder">--</string>
+    <string name="vote_count" formatted="false">%s reviews</string>
+    <string name="category_now_playing">Now Playing</string>
+    <string name="category_top_rated">Top Rated</string>
+    <string name="category_popular">Popular</string>
+    <string name="category_upcoming">Upcoming</string>
+    <string name="view_all">View All</string>
+    <string name="error_network">Network error, check connection</string>
+    <string name="search">Search</string>
+    <string name="title">Title</string>
+    <string name="choose_genres">Choose genres</string>
+    <string name="choose_rating">Choose rating</string>
+    <string name="show">Show</string>
+    <string name="filters">Filters</string>
+    <string name="by_filter">By filter</string>
+</resources>

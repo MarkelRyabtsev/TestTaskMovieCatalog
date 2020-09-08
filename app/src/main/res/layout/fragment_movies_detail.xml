@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.markel.testtaskmoviecatalog.ui.fragments.details.MoviesDetailViewModel" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView_poster_fragmentMoviesDetail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:src="@color/darkBlue"
+                app:imageUrl="@{viewModel.posterUrl}"
+                app:error="@{@color/darkBlue}"
+                app:placeholder="@{@color/darkBlue}"
+                app:layout_constraintDimensionRatio="3:4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/button_back_fragmentMoviesDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16sp"
+                android:background="?selectableItemBackground"
+                android:src="@drawable/arrow_left"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_title_fragmentMoviesDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.title, default=@string/placeholder}"
+                android:textSize="18sp"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_poster_fragmentMoviesDetail"/>
+
+            <RatingBar
+                android:id="@+id/ratingBar_rating_fragmentMoviesDetail"
+                android:rating="@{viewModel.rating}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_title_fragmentMoviesDetail" />
+
+            <TextView
+                android:id="@+id/textView_voteCount_fragmentMoviesDetail"
+                android:text="@{@string/vote_count(viewModel.voteCount), default=@string/placeholder}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingBar_rating_fragmentMoviesDetail"
+                app:layout_constraintStart_toEndOf="@+id/ratingBar_rating_fragmentMoviesDetail"
+                app:layout_constraintTop_toTopOf="@+id/ratingBar_rating_fragmentMoviesDetail" />
+
+            <TextView
+                android:id="@+id/textView_duration_fragmentMoviesDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.duration, default=@string/placeholder}"
+                android:textSize="12sp"
+                android:textColor="@color/grey"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:drawableStart="@drawable/clock"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView_voteCount_fragmentMoviesDetail" />
+
+            <TextView
+                android:id="@+id/textView_releaseDate_fragmentMoviesDetail"
+                android:text="@{viewModel.releaseDate, default=@string/placeholder}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/grey"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:drawableStart="@drawable/calendar"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView_duration_fragmentMoviesDetail" />
+
+            <TextView
+                android:id="@+id/textView_overview_fragmentMoviesDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.overview, default=@string/placeholder}"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView_releaseDate_fragmentMoviesDetail" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
